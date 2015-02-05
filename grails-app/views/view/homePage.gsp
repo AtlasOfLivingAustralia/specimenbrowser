@@ -4,7 +4,7 @@
 		<meta name="layout" content="main"/>
 		<title>Specimens | Atlas of Living Australia</title>
 		<style type="text/css">
-			.panel-text { margin-top : 15px; }
+			.panel-text { margin-top : 15px; font-size: 15px; line-height: 1.5em;}
 		</style>
 	</head>
 	<body class="nav-collections">
@@ -31,7 +31,7 @@
 						<img class="img-polaroid" src="${collection.displayCollectionImage}"/>
 					</g:link>
 					<p class="panel-text">
-						${collection.pubDescription}
+						<sb:descriptionText text="${collection.pubDescription}"/>
 					</p>
 				</div>
 			</g:each>
