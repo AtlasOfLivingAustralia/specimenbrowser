@@ -12,7 +12,7 @@
     </r:script>
 </head>
 
-<body>
+<body class="nav-collections">
 
     <div id="breadcrumb">
         <ol class="breadcrumb">
