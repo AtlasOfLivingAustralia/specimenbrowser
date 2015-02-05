@@ -133,7 +133,7 @@
             richQuery += "&facets=" + facet;
         });
 
-        var entityNameLookup = new AjaxLauncher(collectoryServicesURL + 'resolveNames/'),
+        var entityNameLookup = new AjaxLauncher(collectoryServicesURL + '/resolveNames/'),
             richQueryUrl = richQuery + "&q=" + (entityUid === '' ? '*:*' : buildQueryString(entityUid)),
             imagesLookup = new AjaxLauncher(urlConcat(biocacheServicesUrl, wsBase + richQueryUrl));
 

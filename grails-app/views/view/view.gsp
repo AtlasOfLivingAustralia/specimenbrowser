@@ -13,6 +13,14 @@
 </head>
 
 <body>
+
+    <div id="breadcrumb">
+        <ol class="breadcrumb">
+            <li><a href="http://www.ala.org.au">Home</a> <span class="icon icon-arrow-right"></span> <a href="${grailsApplication.config.collectory.baseURL}">Collections</a></li>
+            <li> <span class="icon icon-arrow-right"></span> <g:link controller="view" action="homePage">Specimen images</g:link></li>
+        </ol>
+    </div>
+
     <div id="content">
         <section class="clearfix">
             <h2 class="pull-left">
