@@ -24,10 +24,10 @@
                 </g:if>
             </h2>
             <g:if test="${recordId}">
-                <a class="pull-right btn btn-small btn-info" style="margin-top: 15px;" href="${grailsApplication.config.biocache.baseURL + 'occurrences/' + recordId}">Show record</a>
+                <a class="pull-right btn btn-small" style="margin-top: 15px;" href="${grailsApplication.config.biocache.baseURL + '/occurrences/' + recordId}">Show record</a>
             </g:if>
         </section>
-        <div id="imageViewer"></div>
+        <div id="imageViewer" style="height:800px;"></div>
     </div>
     <r:script>
         var imageMetadataLookup = new AjaxLauncher(imageInfoUrl + "${id}");

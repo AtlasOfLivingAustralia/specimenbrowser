@@ -8,12 +8,21 @@
         var biocacheServicesUrl = "${grailsApplication.config.biocacheServicesUrl}",
             biocacheWebappUrl = "${grailsApplication.config.biocache.baseURL}",
             collectoryServicesURL = "${grailsApplication.config.collectory.servicesURL}",
+            collectoryURL = "${grailsApplication.config.collectory.baseURL}",
             imageViewerBaseUrl = "${createLink(controller: 'view', action: 'view')}",
             entityUid = "${uid}";
     </r:script>
 </head>
 
 <body>
+    <div id="breadcrumb">
+        <ol class="breadcrumb">
+            <li><a href="http://www.ala.org.au">Home</a> <span class="icon icon-arrow-right"></span> <a href="${grailsApplication.config.collectory.baseURL}">Collections</a></li>
+            <li> <span class="icon icon-arrow-right"></span> <a href="${grailsApplication.config.grails.serverURL}">Specimen images</a> <span class=" icon icon-arrow-right"></span></li>
+            <li><span data-bind="text:entityName"></span></li>
+        </ol>
+    </div>
+
     <div id="content">
         <h2>Specimen images from <span data-bind="text:entityName"></span></h2>
         <div class="row-fluid">

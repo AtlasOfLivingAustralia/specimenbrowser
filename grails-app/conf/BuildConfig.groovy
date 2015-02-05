@@ -28,24 +28,13 @@ grails.project.dependency.resolution = {
         mavenRepo("http://nexus.ala.org.au/content/groups/public/")
     }
 
-    dependencies {
-        // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
-
-        // runtime 'mysql:mysql-connector-java:5.1.22'
-    }
+    dependencies {}
 
     plugins {
         runtime ":jquery:1.8.3"
         runtime ":resources:1.1.6"
-        runtime ":ala-web-theme:0.2.2"
-
-        // Uncomment these (or add new ones) to enable additional resources capabilities
-        //runtime ":zipped-resources:1.0"
-        //runtime ":cached-resources:1.0"
-        //runtime ":yui-minify-resources:0.1.5"
-
-        build ":tomcat:$grailsVersion"
-
+        runtime ":ala-web-theme:0.8.5"
         compile ':cache:1.0.1'
+        build ':tomcat:7.0.54'
     }
 }

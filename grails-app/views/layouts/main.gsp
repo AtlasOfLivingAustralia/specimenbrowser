@@ -8,10 +8,11 @@
     <meta name="description" content="Atlas of Living Australia"/>
     <meta name="author" content="Atlas of Living Australia">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="http://www.ala.org.au/wp-content/themes/ala2011/images/favicon.ico" rel="shortcut icon"  type="image/x-icon"/>
 
     <title><g:layoutTitle /></title>
 
-    <%-- Do not include JS & CSS files here - add them to your app's "application" module (in "Configuration/ApplicationResources.groovy") --%>
+<%-- Do not include JS & CSS files here - add them to your app's "application" module (in "Configuration/ApplicationResources.groovy") --%>
     <r:require modules="bootstrap, application"/>
 
     <r:script disposition='head'>
@@ -65,20 +66,19 @@
     <r:layoutResources/>
     <g:layoutHead />
 </head>
-<body class="${pageProperty(name:'body.class')}" id="${pageProperty(name:'body.id')}" onload="${pageProperty(name:'body.onload')}">
+<body class="${pageProperty(name:'body.class')?:'nav-datasets'}" id="${pageProperty(name:'body.id')}" onload="${pageProperty(name:'body.onload')}">
+<g:set var="fluidLayout" value="${pageProperty(name:'meta.fluidLayout')?:grailsApplication.config.skin?.fluidLayout}"/>
+<hf:banner logoutUrl="${g.createLink(controller:"logout", action:"logout", absolute: true)}" fluidLayout="${fluidLayout}"/>
 
-<hf:banner logoutUrl="${grailsApplication.config.grails.serverURL}/logout/logout"/>
+<hf:menu fluidLayout="${fluidLayout}"/>
 
-<hf:menu/>
-
-<div class="container-fluid" id="main-content">
+<div class="${fluidLayout?'container-fluid':'container'}" id="main-content">
     <g:layoutBody />
 </div><!--/.container-->
 
-<div class="container hidden-desktop">
+<div class="${fluidLayout?'container-fluid':'container'} hidden-desktop">
     <%-- Borrowed from http://marcusasplund.com/optout/ --%>
     <a class="btn btn-small toggleResponsive"><i class="icon-resize-full"></i> <span>Desktop</span> version</a>
-    %{--<a class="btn btn-small toggleResponsive"><i class="icon-resize-full"></i> Desktop version</a>--}%
 </div>
 
 <hf:footer/>
@@ -93,9 +93,9 @@
     pageTracker._trackPageview();
 
     // show warning if using IE6
-    if ($.browser.msie && $.browser.version.slice(0,1) == '6') {
+    if ($.browser && $.browser.msie && $.browser.version.slice(0,1) == '6') {
         $('#header').prepend($('<div style="text-align:center;color:red;">WARNING: This page is not compatible with IE6.' +
-                ' Many functions will still work but layout and image transparency will be disrupted.</div>'));
+        ' Many functions will still work but layout and image transparency will be disrupted.</div>'));
     }
 </r:script>
 
