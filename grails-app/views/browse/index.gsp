@@ -118,6 +118,7 @@
                 kingdom: 'Kingdom', phylum: 'Phylum', genus: 'Genus', species: 'Species', subspecies_name: 'Sub-species'},
             facetsToShow = ["type_status", "raw_sex"],
             baseQuery = "?fq=multimedia:Image&im=true",
+            allCollectionsFilter = "&fq=collection_uid:[* TO *]",
             richQuery,
             pageSize = 100;
 
@@ -132,6 +133,10 @@
         $.each(facetsToShow, function (idx, facet) {
             richQuery += "&facets=" + facet;
         });
+
+        if(entityUid === ''){
+            richQuery += allCollectionsFilter;
+        }
 
         var entityNameLookup = new AjaxLauncher(collectoryServicesURL + '/resolveNames/'),
             richQueryUrl = richQuery + "&q=" + (entityUid === '' ? '*:*' : buildQueryString(entityUid)),
@@ -554,7 +559,7 @@
                 // the uid of the entity to browse
                 this.entityUid = ko.observable(entityUid);
                 // the display name for the entity - this is updated asynchronously by a collectory look-up
-                this.entityName = ko.observable(self.entityUid() || ' entire Atlas'); // display the uid while the name is being retrieved
+                this.entityName = ko.observable(self.entityUid() || ' all collections'); // display the uid while the name is being retrieved
 
                 // ajax call to get the readable name of the entity
                 if (self.entityUid() !== '') {

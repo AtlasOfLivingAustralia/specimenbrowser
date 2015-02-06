@@ -10,15 +10,19 @@
 		</style>
 	</head>
 	<body class="nav-collections">
-		<div id="breadcrumb">
-			<ol class="breadcrumb">
-				<li><a href="http://www.ala.org.au">Home</a></li>
-				<li> <span class="icon icon-arrow-right"></span> Specimen images</li>
-			</ol>
-		</div>
+		%{--<div id="breadcrumb">--}%
+			%{--<ol class="breadcrumb">--}%
+				%{--<li><a href="http://www.ala.org.au">Home</a></li>--}%
+				%{--<li> <span class="icon icon-arrow-right"></span> Specimen images</li>--}%
+			%{--</ol>--}%
+		%{--</div>--}%
 		<div id="page-body" role="main">
 			<h1>Specimens images from Australia's Natural History collections</h1>
-			<p class="lead">Images from Australian Natural History collections made available by the museums and herbaria of Australia</p>
+			<p class="lead">
+				Images from Australian Natural History collections made available by the museums and herbaria of Australia.<br/>
+				To view images from all collections, <g:link controller="browse">click here</g:link>.</p>
+			</p>
+
 			<g:each in="${collectionsData}" var="collection" status="collectionIdx">
 				<g:if test="${collectionIdx == 0 || collectionIdx % 3 == 0}">
 					<g:if test="${collectionIdx > 0}">
