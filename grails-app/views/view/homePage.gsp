@@ -5,12 +5,14 @@
 		<title>Specimens | Atlas of Living Australia</title>
 		<style type="text/css">
 			.panel-text { margin-top : 15px; font-size: 15px; line-height: 1.5em;}
+			.panel h2 { line-height: 1.2em; }
+			.panel h3 { line-height: 1.2em; }
 		</style>
 	</head>
 	<body class="nav-collections">
 		<div id="breadcrumb">
 			<ol class="breadcrumb">
-				<li><a href="http://www.ala.org.au">Home</a> <span class="icon icon-arrow-right"></span> <a href="${grailsApplication.config.collectory.baseURL}">Collections</a></li>
+				<li><a href="http://www.ala.org.au">Home</a></li>
 				<li> <span class="icon icon-arrow-right"></span> Specimen images</li>
 			</ol>
 		</div>
@@ -24,8 +26,8 @@
 					</g:if>
 					<div class="row-fluid">
 				</g:if>
-				<div class="span4 well">
-					<h2>${collection.name}</h2>
+				<div class="span4 well panel">
+					<h2><g:link controller="browse" params="[id:collection.uid]">${collection.name}</g:link></h2>
 					<h3>${collection.institution.name}</h3>
 					<g:link controller="browse" params="[id:collection.uid]">
 						<img class="img-polaroid" src="${collection.displayCollectionImage}"/>

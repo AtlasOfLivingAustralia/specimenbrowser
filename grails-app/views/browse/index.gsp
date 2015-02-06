@@ -17,7 +17,7 @@
 <body>
     <div id="breadcrumb">
         <ol class="breadcrumb">
-            <li><a href="http://www.ala.org.au">Home</a> <span class="icon icon-arrow-right"></span> <a href="${grailsApplication.config.collectory.baseURL}">Collections</a></li>
+            <li><a href="http://www.ala.org.au">Home</a></li>
             <li> <span class="icon icon-arrow-right"></span> <a href="${grailsApplication.config.grails.serverURL}">Specimen images</a> <span class=" icon icon-arrow-right"></span></li>
             <li><span data-bind="text:entityName"></span></li>
         </ol>
@@ -199,15 +199,11 @@
                 this.uuid = data.uuid;
                 this.largeImageViewerUrl = ko.computed(function () {
                     var url = imageViewerBaseUrl + '/' + metadata.imageId;
-                    url += '?title=' + self.scientificName;
-                    if (self.vernacularName !== undefined) {
-                        url += '&common=' + self.vernacularName;
-                    }
-                    url += '&recordId=' + self.uuid;
+                    url += '?recordId=' + self.uuid;
                     return url;
                 });
                 this.recordLink = ko.computed(function () {
-                    return biocacheWebappUrl + 'occurrences/' + self.uuid;
+                    return biocacheWebappUrl + '/occurrences/' + self.uuid;
                 });
                 this.imageCaption = ko.computed(function () {
                     var imageText = self.scientificName;

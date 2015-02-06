@@ -22,6 +22,8 @@ class UrlMappings {
 		}
 
 		"/"(controller: 'view', action: 'homePage')
+        "/auxData/$recordId"(controller: 'view', action: 'auxData')
+        "/view/$id"(controller: 'view', action: 'view')
 		"500"(view:'/error')
 	}
 }
