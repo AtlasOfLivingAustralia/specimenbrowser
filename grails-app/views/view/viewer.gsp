@@ -2,21 +2,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Image </title>
+    <title>Image viewer | ${params.recordId} | Specimens | Atlas of Living Australia </title>
     <style>
-    html, body {
-        height:100%;
-        padding: 0;
-    }
-    #imageViewerContainer {
-        height: 100%;
-        padding: 0;
-    }
-    #imageViewer {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-    }
+        html, body {
+            height:100%;
+            padding: 0;
+        }
+        #imageViewerContainer {
+            height: 100%;
+            padding: 0;
+        }
+        #imageViewer {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
     </style>
 
     <r:require modules="bootstrap,leaflet,leaflet_draw,viewer"/>

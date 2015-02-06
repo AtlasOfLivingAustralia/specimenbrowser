@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>Specimen image browser prototype</title>
+    <title>Specimens | Atlas of Living Australia</title>
     <r:require modules="knockout,bbq"/>
     <r:script disposition="head">
         var biocacheServicesUrl = "${grailsApplication.config.biocacheServicesUrl}",
