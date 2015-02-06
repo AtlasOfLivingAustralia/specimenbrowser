@@ -25,7 +25,7 @@
         $(document).ready(function() {
             var options = {
                 imageServiceBaseUrl : "http://images.ala.org.au",
-                auxDataUrl : "http://localhost:8080/specimenbrowser/auxData/${params.recordId}"
+                auxDataUrl : "${createLink(controller: "view", action: "auxData")}/${params.recordId}"
             };
 
             imgvwr.viewImage($("#imageViewer"), "${id}", options);

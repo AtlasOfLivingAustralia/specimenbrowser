@@ -65,7 +65,7 @@
                 </div>--}%
             </div>
             <div class="span9">
-                <div class="alert alert-success" data-bind="visible:loadStatus()==='done'">
+                <div class="alert alert-info" data-bind="visible:loadStatus()==='done'">
                     <span data-bind="text:totalRecords"></span> images are available.
                 </div>
                 <div class="alert alert-warning" data-bind="visible:loadStatus()==='no results'">No images are available for this search.</div>
