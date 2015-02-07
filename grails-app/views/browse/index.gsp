@@ -27,7 +27,7 @@
         <h2>Specimen images from <span data-bind="text:entityName"></span></h2>
         <div class="row-fluid">
             <div class="span3 well well-small">
-                <span data-bind="click:clearAllFilters" class="clickable">All</span>
+                <span data-bind="click:clearAllFilters" class="clickable pull-right btn">Clear filters</span>
                 <div data-bind="with:taxonomy" id="taxonomyFacet">
                     <h3>Taxonomy</h3>
                     <ul style="margin-left:0; margin-bottom:0;">
