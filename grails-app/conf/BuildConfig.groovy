@@ -33,9 +33,9 @@ grails.project.dependency.resolution = {
     plugins {
         runtime ":jquery:1.8.3"
         runtime ":resources:1.1.6"
-        runtime ":ala-web-theme:0.8.4"
+        runtime ":ala-bootstrap2:2.1"
         runtime ":images-client-plugin:0.2.3"
-        compile ':cache:1.0.1'
+        compile ':cache:1.1.8'
         build ':tomcat:7.0.54'
     }
 }
