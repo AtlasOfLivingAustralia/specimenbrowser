@@ -70,8 +70,6 @@
 <g:set var="fluidLayout" value="${pageProperty(name:'meta.fluidLayout')?:grailsApplication.config.skin?.fluidLayout}"/>
 <hf:banner logoutUrl="${g.createLink(controller:"logout", action:"logout", absolute: true)}" fluidLayout="${fluidLayout}"/>
 
-<hf:menu fluidLayout="${fluidLayout}"/>
-
 <div class="${fluidLayout?'container-fluid':'container'}" id="main-content">
     <g:layoutBody />
 </div><!--/.container-->
