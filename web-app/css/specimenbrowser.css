@@ -1,3 +1,7 @@
+.panel-text { margin-top : 15px; font-size: 15px; line-height: 1.5em;}
+.panel h2 { line-height: 1.2em; }
+.panel h3 { line-height: 1.2em; }
+
 .space-after {
     margin-bottom: 10px;
 }

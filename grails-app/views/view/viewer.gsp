@@ -19,15 +19,14 @@
         }
     </style>
 
-    <r:require modules="bootstrap,leaflet,leaflet_draw,viewer"/>
+    <r:require modules="bootstrap,leaflet,leaflet_draw,image_viewer"/>
     <r:layoutResources/>
     <r:script>
         $(document).ready(function() {
             var options = {
-                imageServiceBaseUrl : "http://images.ala.org.au",
+                imageServiceBaseUrl : "${grailsApplication.config.ala.image.baseURL}",
                 auxDataUrl : "${createLink(controller: "view", action: "auxData")}/${params.recordId}"
             };
-
             imgvwr.viewImage($("#imageViewer"), "${id}", options);
         });
     </r:script>

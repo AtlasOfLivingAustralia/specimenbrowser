@@ -42,7 +42,7 @@ class ViewController {
         ]
 
         if(json.processed.location.decimalLatitude && json.processed.location.decimalLongitude){
-            data.put("Coordinates", json.processed.location.decimalLatitude?:"" + " " + json.processed.location.decimalLongitude?:"")
+            data.put("Coordinates", json.processed.location.decimalLatitude + " " + json.processed.location.decimalLongitude)
         }
         if(json.raw.location.locality){
             data.put("Locality", json.raw.location.locality)

@@ -2,27 +2,15 @@
 <html>
 	<head>
 		<meta name="layout" content="main"/>
-		<title>Specimens | Atlas of Living Australia</title>
-		<style type="text/css">
-			.panel-text { margin-top : 15px; font-size: 15px; line-height: 1.5em;}
-			.panel h2 { line-height: 1.2em; }
-			.panel h3 { line-height: 1.2em; }
-		</style>
+		<title>Images of specimens | Atlas of Living Australia</title>
 	</head>
 	<body class="nav-collections">
-		%{--<div id="breadcrumb">--}%
-			%{--<ol class="breadcrumb">--}%
-				%{--<li><a href="http://www.ala.org.au">Home</a></li>--}%
-				%{--<li> <span class="icon icon-arrow-right"></span> Specimen images</li>--}%
-			%{--</ol>--}%
-		%{--</div>--}%
 		<div id="page-body" role="main">
-			<h1>Specimens images from Australia's Natural History collections</h1>
+			<h1>Images of specimens from Australia’s Natural History Collections</h1>
 			<p class="lead">
-				Images from Australian Natural History collections made available by the museums and herbaria of Australia.<br/>
+				Images from Australia's Natural History collections made available by the museums and herbaria of Australia.<br/>
 				To view images from all collections, <g:link controller="browse">click here</g:link>.</p>
 			</p>
-
 			<g:each in="${collectionsData}" var="collection" status="collectionIdx">
 				<g:if test="${collectionIdx == 0 || collectionIdx % 3 == 0}">
 					<g:if test="${collectionIdx > 0}">
