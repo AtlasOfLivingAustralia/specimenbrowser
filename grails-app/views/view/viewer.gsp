@@ -19,7 +19,7 @@
         }
     </style>
 
-    <r:require modules="bootstrap,leaflet,leaflet_draw,image_viewer"/>
+    <r:require modules="bootstrap,leaflet,leaflet-draw,image-viewer"/>
     <r:layoutResources/>
     <r:script>
         $(document).ready(function() {
