@@ -8,9 +8,12 @@ grails.project.source.level = 1.6
 
 //grails.plugin.location."images-client-plugin" = "../images-client-plugin"
 // uncomment (and adjust settings) to fork the JVM to isolate classpaths
-//grails.project.fork = [
-//   run: [maxMemory:1024, minMemory:64, debug:false, maxPerm:256]
-//]
+grails.project.fork = [
+        test: false,
+        run: false,
+        war: false,
+        console: false
+]
 
 grails.project.dependency.resolver = "maven"
 
@@ -26,17 +29,20 @@ grails.project.dependency.resolution = {
 
     repositories {
         mavenLocal()
-        mavenRepo("http://nexus.ala.org.au/content/groups/public/")
+        mavenRepo("http://nexus.ala.org.au/content/groups/public/"){
+            updatePolicy 'always'
+        }
     }
 
-    dependencies {}
+    dependencies {
+
+    }
 
     plugins {
-        runtime ":jquery:1.8.3"
-        runtime ":resources:1.1.6"
-        runtime ":ala-bootstrap2:2.1"
-        runtime ":images-client-plugin:0.5"
+        runtime ":ala-bootstrap2:2.2"
+        runtime ":images-client-plugin:0.5.3"
         compile ':cache:1.1.8'
+        compile ':ala-auth:1.3.1'
         build ':tomcat:7.0.54'
     }
 }

@@ -77,8 +77,8 @@ if (!spatial.baseURL) {
 if (!ala.baseURL) {
     ala.baseURL = "http://www.ala.org.au"
 }
-if (!ala.images.baseURL) {
-    ala.image.baseURL = "http://images.ala.org.au"
+if (!ala.image.service.url) {
+    ala.image.service.url = "http://images.ala.org.au"
 }
 
 // The default codec used to encode data with ${}

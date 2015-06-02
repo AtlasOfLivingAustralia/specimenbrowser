@@ -11,11 +11,4 @@ modules = {
     bbq {
         resource 'js/jquery.ba-bbq.min.js'
     }
-
-    leaflet {
-        resource 'leaflet/leaflet.css'
-        resource 'leaflet/Control.FullScreen.css'
-        resource 'leaflet/leaflet.js'
-        resource 'leaflet/Control.FullScreen.js'
-    }
 }
