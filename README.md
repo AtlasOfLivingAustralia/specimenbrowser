@@ -55,5 +55,5 @@ Comment out any testing line for specimens.ala.org.au in your /etc/hosts file an
 Then deploy to that machine using the following command, replacing "MY_USER_NAME" with your login username:
 
 ```
-$ ansible-playbook --user MY_USER_NAME -i ansible-inventories/specimens.ala.org.au ala-install/ansible/specimenbrowser-hub-standalone.yml --private-key ~/.ssh/id_rsa -vvvv --sudo --ask-sudo-pass
+$ ansible-playbook --user MY_USER_NAME -i ansible-inventories/specimens.ala.org.au ala-install/ansible/specimenbrowser-standalone.yml --private-key ~/.ssh/id_rsa -vvvv --sudo --ask-sudo-pass
 ```
