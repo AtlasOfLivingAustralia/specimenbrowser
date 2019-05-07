@@ -54,31 +54,31 @@ reloadable.cfgs = ["file:/data/${appName}/config/${appName}-config.properties"]
  *  EXTERNAL SERVERS
  \******************************************************************************/
 if (!bie.baseURL) {
-    bie.baseURL = "http://bie.ala.org.au"
+    bie.baseURL = "https://bie.ala.org.au"
 }
 if (!bie.searchPath) {
     bie.searchPath = "/search"
 }
 if (!biocache.baseURL) {
-    biocache.baseURL = "http://biocache.ala.org.au"
+    biocache.baseURL = "https://biocache.ala.org.au"
 }
 if(!biocacheServicesUrl){
-    biocacheServicesUrl = "http://biocache.ala.org.au/ws"
+    biocacheServicesUrl = "https://biocache-ws.ala.org.au/ws"
 }
 if(!collectory.baseURL){
-    collectory.baseURL = "http://collections.ala.org.au"
+    collectory.baseURL = "https://collections.ala.org.au"
 }
 if(!collectory.servicesURL){
-    collectory.servicesURL = "http://collections.ala.org.au/ws"
+    collectory.servicesURL = "https://collections.ala.org.au/ws"
 }
 if (!spatial.baseURL) {
-    spatial.baseURL = "http://spatial.ala.org.au"
+    spatial.baseURL = "https://spatial.ala.org.au"
 }
 if (!ala.baseURL) {
-    ala.baseURL = "http://www.ala.org.au"
+    ala.baseURL = "https://www.ala.org.au"
 }
 if (!ala.image.service.url) {
-    ala.image.service.url = "http://images.ala.org.au"
+    ala.image.service.url = "https://images.ala.org.au"
 }
 
 // The default codec used to encode data with ${}
