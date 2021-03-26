@@ -2,32 +2,26 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
+    <meta name="breadcrumbs" content="${g.createLink(controller: 'view', action: 'homePage')},Specimen Images"/>
     <title>Specimens | Atlas of Living Australia</title>
-    <r:require modules="knockout,bbq"/>
-    <r:script disposition="head">
-        var biocacheServicesUrl = "${grailsApplication.config.biocacheServicesUrl}",
+    <asset:javascript src="browser.js"/>
+    <asset:stylesheet src="specimenbrowser.css"/>
+    <asset:script>
+        var biocacheServicesUrl = "${grailsApplication.config.biocache.servicesUrl}",
             biocacheWebappUrl = "${grailsApplication.config.biocache.baseURL}",
-            collectoryServicesURL = "${grailsApplication.config.collectory.servicesURL}",
+            collectoryServicesURL = "${grailsApplication.config.collectory.servicesUrl}",
             collectoryURL = "${grailsApplication.config.collectory.baseURL}",
             imageViewerBaseUrl = "${createLink(controller: 'view', action: 'view')}",
             entityUid = "${uid}";
-    </r:script>
+    </asset:script>
 </head>
-
 <body>
-    <div id="breadcrumb">
-        <ol class="breadcrumb">
-            <li><a href="http://www.ala.org.au">Home</a></li>
-            <li> <span class="icon icon-arrow-right"></span> <a href="${grailsApplication.config.grails.serverURL}">Specimen images</a> <span class=" icon icon-arrow-right"></span></li>
-            <li><span data-bind="text:entityName"></span></li>
-        </ol>
-    </div>
-
-    <div id="content">
+        <div class="page-header">
         <h2>Specimen images from <span data-bind="text:entityName"></span></h2>
-        <div class="row-fluid">
-            <div class="span3 well well-small">
-                <span data-bind="click:clearAllFilters" class="clickable pull-right btn">Clear filters</span>
+        </div>
+        <div class="row">
+            <div class="col-md-3 well well-small">
+                <span data-bind="click:clearAllFilters" class="clickable pull-right btn btn-default">Clear filters</span>
                 <div data-bind="with:taxonomy" id="taxonomyFacet">
                     <h3>Taxonomy</h3>
                     <ul style="margin-left:0; margin-bottom:0;">
@@ -64,7 +58,7 @@
                     <pre>Offset: <span data-bind="text:imageList.offset"></span></pre>
                 </div>--}%
             </div>
-            <div class="span9">
+            <div class="col-md-9">
                 <div class="alert alert-info" data-bind="visible:loadStatus()==='done'">
                     <span data-bind="text:totalRecords"></span> images are available.
                 </div>
@@ -95,21 +89,21 @@
                                 <li data-bind="text:typeStatus,visible:typeStatus"></li>
                             </ul>
                             <span class="pull-right" style="position:absolute;bottom:4px;right:4px;">
-                                <a data-bind="attr:{href:recordLink}"><i class="icon-info-sign icon-white"></i></a>
-                                <a data-bind="attr:{href:largeImageViewerUrl}"><i class="icon-zoom-in icon-white"></i></a>
+                                <a data-bind="attr:{href:recordLink}"><i class="glyphicon glyphicon-info-sign"></i></a>
+                                <a data-bind="attr:{href:largeImageViewerUrl}"><i class="glyphicon glyphicon-zoom-in"></i></a>
                             </span>
                         </div>
                     </div>
                 </div>
                 <div style="text-align:center;margin-top:15px;">
-                    <r:img style="" data-bind="visible:isLoading" dir="images" file="ajax-loader.gif"/>
+                    <asset:image src="ajax-loader.gif" data-bind="visible:isLoading"/>
                     <span data-bind="visible:!hasMoreResults()&&!isLoading(),click:imageList.getMoreResults" class="btn clickable">Show more results</span>
                 </div>
             </div>
         </div>
 
     </div>
-    <r:script>
+    <asset:script>
 
         var wsBase = "/occurrences/search.json",
             uiBase = "/occurrences/search",
@@ -750,6 +744,6 @@
 
         var imageLayout = new ImageLayout();
 
-    </r:script>
+    </asset:script>
 </body>
 </html>

@@ -2,25 +2,33 @@
 <!doctype html>
 <html>
     <head>
-        <meta name="layout" content="adminLayout"/>
-        <title>Settings - Admin - Specimen image browser - Atlas of Living Australia</title>
-        <r:require module="knockout"/>
-        <r:script disposition="head">
-        var biocacheServicesUrl = "${grailsApplication.config.biocacheServicesUrl}",
-            collectoryServicesURL = "${grailsApplication.config.collectory.servicesURL}",
+        <meta name="layout" content="main"/>
+        <meta name="breadcrumbs" content="${g.createLink(controller: 'admin', action: 'index')},Admin"/>
+        <title>Image Counts - Specimen image browser - Atlas of Living Australia</title>
+        <asset:javascript src="admin.js"/>
+        <asset:script type="text/javascript">
+        var biocacheServicesUrl = "${grailsApplication.config.biocache.servicesUrl}",
+            collectoryServicesURL = "${grailsApplication.config.collectory.servicesUrl}",
             browseUrl = "${createLink(controller: 'browse')}";
-        </r:script>
+        </asset:script>
     </head>
-
     <body>
-        <content tag="pageTitle">Image counts</content>
-        <table class="table table-bordered table-striped">
+    <div class="page-header">
+        <h1>Image Counts</h1>
+        <p>This page displays all collections and data resources that have images associated with them.</p>
+    </div>
+    <div class="row">
+        <div class="col-md-offset-1 col-md-10">
+            <table class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>Resource UID</th>
                     <th>Resource</th>
                     <th>Number of images</th>
                 </tr>
+            <tr id="countLoading">
+                <td class="text-center" colspan="3"><asset:image src="ajax-loader.gif"/></td>
+            </tr>
             </thead>
             <tbody data-bind="foreach:resources">
                 <tr>
@@ -30,21 +38,15 @@
                 </tr>
             </tbody>
         </table>
-    <script type="text/javascript">
+    <asset:script type="text/javascript">
 
         $(document).ready(function() {
 
-            var Resource = function (uid, count) {
+            var Resource = function (uid, name, count) {
                 var self = this;
                 this.uid = uid;
                 this.count = count;
-                this.name = ko.observable('');
-                $.ajax(collectoryServicesURL + 'resolveNames/' + this.uid, {
-                    dataType: 'jsonp',
-                    timeout: 20000
-                }).done(function (data) {
-                    self.name(data[self.uid]);
-                });
+                this.name = name;
                 this.gotoBrowse = function () {
                     document.location.href = browseUrl + '/' + self.uid;
                 };
@@ -52,7 +54,7 @@
             var ViewModel = function () {
                 var self = this,
                     url = biocacheServicesUrl +
-                            '/occurrences/search.json?q=*:*&fq=multimedia:Image&facets=collection_uid&facets=data_resource_uid&pageSize=0';
+                            '/occurrences/search.json?q=multimedia:Image&facets=collection_uid&facets=data_resource_uid&flimit=-1&pageSize=0';
                 this.resources = ko.observableArray();
                 $.ajax(url, {
                     dataType: 'jsonp',
@@ -60,9 +62,12 @@
                 }).done(function (data) {
                     $.each(data.facetResults, function (i, facet) {
                         $.each(facet.fieldResult, function (idx, item) {
-                            self.resources.push(new Resource(item.label, item.count));
+                            var fq = /:"?([^"]+)"?/.exec(item.fq);
+                            var uid = fq ? fq[1] : "-";
+                            self.resources.push(new Resource(uid, item.label, item.count));
                         });
                     });
+                    $("#countLoading").hide();
                 });
             };
 
@@ -70,6 +75,10 @@
             ko.applyBindings(viewModel);
         });
 
-    </script>
+    </asset:script>
+
+        </div>
+    </div>
+
     </body>
 </html>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="layout" content="main"/>
-		<title>Specimens | Atlas of Living Australia</title>
+		<meta name="layout" content="${grailsApplication.config.skin.layout}"/>
+		<title>Specimens | ${grailsApplication.config.skin.orgNameLong}</title>
 	</head>
 	<body class="nav-collections">
 
