@@ -43,8 +43,9 @@ class ResourceService implements GrailsConfigurationAware {
      */
     String resourcePath(String uid) {
         def mapping = resourceMappings.find { m -> uid.startsWith(m.prefix) }
-        if (mapping)
+        if (mapping) {
             return mapping.path
+        }
         throw new IllegalArgumentException("Unable to find collectory path for " + uid)
     }
 
