@@ -8,16 +8,16 @@ branches:
   - master
   - develop
 before_cache:
-  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+- rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+- rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 cache:
   directories:
-    - $HOME/.m2
-    - $HOME/.gradle/caches/
-    - $HOME/.gradle/wrapper/
+  - "$HOME/.m2"
+  - "$HOME/.gradle/caches/"
+  - "$HOME/.gradle/wrapper/"
 after_success:
-  - '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && travis_retry ./gradlew publish'
+- '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && travis_retry ./gradlew publish'
 env:
   global:
-  - secure: XXXTssBnWIBinafmyop1zf/2Pf81hpr0IisjfUd9lw4InfnbICNChS6P/ovfdtFu062xeVYbAgUQLCec1KlPDZQ32UgxFGU74EQ/1M70bJULsxd35UBpTNkhUyNQIcr9DkOhMYahvQbmySv5JGVFiT9ry/38xzQsHfYCQPs5dJY=
-  - secure: FHlKa+UKFJdz/4AlfIo6rspYR6+KGOND4hk13LJN3QZCHRjM2ij9toqDxP74aH4VGpaUzEaKy1cC8hqE2F97VbptrFo2NtDEl9fJ6Z/+3lPo3tr6PZ69WZqex//bO+kkpjEn0KspLc92cCfaVOJxHWu5QcQ+C1SddfTwY5FuHPU=
+  - secure: Z6Jfqbjh+XtuJZpVEmBq3ZarQYG2Hb++md9uBKQeWyy23pM7Mh3S3enne3DNs7zyPEUYVr+udUZI5uGyKmjMKZqAgacZZeAtaj4tcJyZPJDzxCTyxzA+BlcYT3/tdmv/9jH4iwolp9CPHGZA69WhlttV9NLg9GBCpElfxi2bs7A=
+  - secure: Bl6/Y0aI9Dq3CxZBJgES+M39O62+zkxzI93/6R0g0b7e86i6v5l319Y9fi3PLQ+YsIwJDMMSPvksKOLCk+e0WrizcdF21fDcJlHyO6WrnPoZIHA+dvMJ2AORIbHtBWo5KdczDmWR9/n2UkV6xwRZ0MRZ25bZLy3AsHh/I/5FMPA=
