@@ -56,10 +56,12 @@ class ViewController implements GrailsConfigurationAware {
         def model = [title:title, data:data, link:grailsApplication.config.biocache.baseURL + "/occurrence/" + params.recordId, linkText:"View full record details"]
         def jsOutput = new JsonOutput()
         def output = jsOutput.toJson(model)
+        def contentType = "application/json"
         if(params.callback){
             output = params.callback + "(" + output + ");"
+            contentType = "application/javascript"
         }
-        response.setContentType("application/json")
+        response.setContentType(contentType)
         render output
     }
 
