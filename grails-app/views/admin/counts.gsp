@@ -2,7 +2,7 @@
 <!doctype html>
 <html>
     <head>
-        <meta name="layout" content="main"/>
+        <meta name="layout" content="${grailsApplication.config.skin.layout}"/>
         <meta name="breadcrumbs" content="${g.createLink(controller: 'admin', action: 'index')},Admin"/>
         <title>Image Counts - Specimen image browser - Atlas of Living Australia</title>
         <asset:javascript src="admin.js"/>

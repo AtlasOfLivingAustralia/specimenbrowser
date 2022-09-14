@@ -157,14 +157,24 @@ security:
     cas:
         appServerName:  https://specimens.ala.org.au
         casServerName:   https://auth.ala.org.au
-        uriFilterPattern:   /admin.*,/alaAdmin.*
+        uriFilterPattern:   /admin/*,/alaAdmin/*
+        enabled: false
+    oidc:
+        enabled: true
+        discoveryUri: https://auth-test.ala.org.au/cas/oidc/.well-known
+        scope: openid profile email ala roles
+        clientId: 'change me'
+        secret: 'change me'
+
+headerAndFooter:
+    baseURL: "https://www.ala.org.au/commonui-bs3-2019"
+    version: "2"
+
 skin:
-    layout: main
-    fluidLayout: true
-    orgNameLong: Atlas of Living Australia
+    layout: "ala-main"
+    orgNameLong: "Atlas of Living Australia"
+    orgNameShort: "ALA"
+
 specimenbrowser:
     data:
         url: file:///data/specimenbrowser/config/data.json
-headerAndFooter:
-    baseURL: https://www.ala.org.au/commonui-bs3-2019
-    version: 2
