@@ -80,6 +80,7 @@ dependencies {
 
     // ALA Plugins
      compile "org.grails.plugins:ala-auth:5.1.1"
+     compile "org.grails.plugins:ala-admin-plugin:2.3.0"
      runtime "org.grails.plugins:ala-bootstrap3:4.1.0"
      compile "au.org.ala.plugins.grails:images-client-plugin:1.4"
 
