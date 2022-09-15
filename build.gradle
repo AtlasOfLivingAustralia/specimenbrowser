@@ -7,7 +7,6 @@ buildscript {
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
         classpath "gradle.plugin.com.github.erdi.webdriver-binaries:webdriver-binaries-gradle-plugin:2.0"
-        // classpath "org.grails.plugins:hibernate5:7.0.4"
         classpath "com.bertramlabs.plugins:asset-pipeline-gradle:3.2.4"
     }
 }
@@ -24,8 +23,6 @@ apply plugin:"com.bertramlabs.asset-pipeline"
 apply plugin:"org.grails.grails-gsp"
 apply plugin:"maven-publish"
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
 
 repositories {
     mavenLocal()
@@ -82,10 +79,11 @@ dependencies {
     compile 'org.webjars:knockout:3.5.1'
 
     // ALA Plugins
-    compile group: 'org.grails.plugins', name: 'ala-auth', version: '3.2.2'
-    compile group: 'org.grails.plugins', name: 'ala-admin-plugin', version: '2.2'
-    compile group: 'org.grails.plugins', name: 'ala-bootstrap3', version: '3.2.3'
-    compile group: 'au.org.ala.plugins.grails', name: 'images-client-plugin', version: '1.2'
+     compile "org.grails.plugins:ala-auth:5.1.1"
+     compile "org.grails.plugins:ala-admin-plugin:2.3.0"
+     runtime "org.grails.plugins:ala-bootstrap3:4.1.0"
+     compile "au.org.ala.plugins.grails:images-client-plugin:1.4"
+
 }
 
 bootRun {

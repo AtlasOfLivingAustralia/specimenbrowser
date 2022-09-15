@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <meta name="layout" content="main"/>
+    <meta name="layout" content="${grailsApplication.config.skin.layout}"/>
     <meta name="breadcrumbs" content="${g.createLink(controller: 'view', action: 'homePage')},Specimen Images"/>
     <title>Specimens | Atlas of Living Australia</title>
     <asset:javascript src="browser.js"/>
