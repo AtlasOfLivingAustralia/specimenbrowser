@@ -60,7 +60,7 @@
             </div>
             <div class="col-md-9">
                 <div class="alert alert-info" data-bind="visible:loadStatus()==='done'">
-                    <span data-bind="text:totalRecords"></span> images are available.
+                    <strong><span data-bind="text:imageList.images().length"></span></strong> image(s) loaded from <strong><span data-bind="text:totalRecords"></span></strong> records
                 </div>
                 <div class="alert alert-warning" data-bind="visible:loadStatus()==='no results'">No images are available for this search.</div>
                 <div class="alert alert-error" data-bind="visible:loadStatus()==='error'">An error occurred.</div>
@@ -132,10 +132,9 @@
             richQuery += allCollectionsFilter;
         }
 
-        var entityNameLookup = new AjaxLauncher(collectoryServicesURL + '/resolveNames/'),
+        var entityNameLookup = new AjaxLauncher(collectoryServicesURL + 'resolveNames/'),
             richQueryUrl = richQuery + "&q=" + (entityUid === '' ? '*:*' : buildQueryString(entityUid)),
             imagesLookup = new AjaxLauncher(urlConcat(biocacheServicesUrl, wsBase + richQueryUrl));
-
         var initialQueryResultsLoaded;
 
         $(window).load(function () {
