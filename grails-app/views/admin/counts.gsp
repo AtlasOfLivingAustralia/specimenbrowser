@@ -54,10 +54,10 @@
             var ViewModel = function () {
                 var self = this,
                     url = biocacheServicesUrl +
-                            '/occurrences/search.json?q=multimedia:Image&facets=collection_uid&facets=data_resource_uid&flimit=-1&pageSize=0';
+                            '/occurrences/search?q=multimedia:Image&facets=collection_uid&facets=data_resource_uid&flimit=-1&pageSize=0';
                 this.resources = ko.observableArray();
                 $.ajax(url, {
-                    dataType: 'jsonp',
+                    dataType: 'json',
                     timeout: 20000
                 }).done(function (data) {
                     $.each(data.facetResults, function (i, facet) {
