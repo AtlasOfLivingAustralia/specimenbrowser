@@ -54,7 +54,7 @@ function AjaxLauncher (baseUrl) {
     this.launch = function (query, keyword, data) {
         keyword = keyword === undefined ? 'default' : keyword;
         query = query === undefined ? '' : query;
-        var xhr = $.ajax({url: baseUrl + query, dataType: 'jsonp', timeout: 20000}),
+        var xhr = $.ajax({url: baseUrl + query, dataType: 'json', timeout: 20000}),
             list = self.subscribers[keyword];
         if (list !== undefined) {
             $.each(list, function (idx, callback) {
