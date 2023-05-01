@@ -43,7 +43,7 @@ configurations {
     }
 }
 
-def alaSecurityLibsVersion='6.0.0-SNAPSHOT'
+def alaSecurityLibsVersion='6.0.0'
 
 dependencies {
     developmentOnly("org.springframework.boot:spring-boot-devtools")
