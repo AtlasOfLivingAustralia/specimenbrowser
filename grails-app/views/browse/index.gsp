@@ -105,7 +105,7 @@
     </div>
     <asset:script>
 
-        var wsBase = "/occurrences/search.json",
+        var wsBase = "/occurrences/search",
             uiBase = "/occurrences/search",
             ranks = ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'/*, 'subspecies_name'*/], // support division and sub-ranks later
             facetNames = {type_status: 'Types', raw_sex: 'Sex', family: 'Family', order: 'Order', 'class': 'Class',
